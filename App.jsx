@@ -5,11 +5,23 @@
 // import ToggleVisibilty from './components/ToggleVisibilty'
 
 import Rate from "./components/Rate"
-
+import Result from "./components/Result"
+import { useState } from "react"
 function App() {
+  const [submit, setSubmit] = useState(false)
+  const [rate, setRate] = useState()
+
+
   return(
     <div  >
-      <Rate/>
+      { submit 
+      ?       
+      <Result rate={rate} /> 
+      : 
+      <Rate
+       rate={rate} 
+       setRate={setRate} 
+       setSubmit={setSubmit} />}
     </div>
 
 
