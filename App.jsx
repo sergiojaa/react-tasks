@@ -3,15 +3,21 @@ import data from './components/data.json'
 function App() {
   const [notifications, setNotifications] = useState(data)
 
+  //derived state agmocenebuli
+const counter = notifications.filter
+  (notification => !notification.isRead).length
   const read = (id)=>{
     const updatedNotifications = notifications.map((message) => {
-      console.log(message)
+      
      if (message.id === id){
       return {...message, isRead: true}
      }
      return message
     })
     setNotifications(updatedNotifications)
+   
+
+
   }
   const markAllAsRead = () =>{
     const updatedNotifications = notifications.map((message) => {
@@ -25,7 +31,7 @@ function App() {
   return(
     <div>
      <section>
-      <h1>Notifications 3</h1>
+      <h1>Notifications {counter} </h1>
       <p onClick={markAllAsRead} className=" cursor-pointer" >Mark all as read</p>
      </section>
      <main>
