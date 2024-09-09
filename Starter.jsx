@@ -21,3 +21,12 @@ export default function Starter({setNotifications,notifications}) {
     </div>
   )
 }
+Starter.propTypes = {
+    setNotifications: PropTypes.func.isRequired,
+    notifications: PropTypes.arrayOf(
+      PropTypes.shape({
+        isRead: PropTypes.bool.isRequired,
+        // Add other properties here if needed
+      })
+    ).isRequired
+  };
